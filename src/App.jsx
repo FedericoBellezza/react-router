@@ -6,7 +6,9 @@ import DefaultLayout from "./Layouts/DefaultLayout";
 // Pages
 import HomePage from "./Pages/HomePage";
 import AboutPage from "./Pages/AboutPage";
-import PostListPage from "./Pages/PostListPage";
+// Post pages
+import PostListPage from "./Pages/Posts/PostListPage";
+import PostShow from "./Pages/Posts/PostShow";
 
 function App() {
   return (
@@ -15,7 +17,10 @@ function App() {
         <Route Component={DefaultLayout}>
           <Route index Component={HomePage}></Route>
           <Route path="/about" Component={AboutPage}></Route>
-          <Route path="/post-list" Component={PostListPage}></Route>
+          <Route path="/posts">
+            <Route index Component={PostListPage}></Route>
+            <Route path=":id" Component={PostShow}></Route>
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
